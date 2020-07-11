@@ -411,7 +411,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 7957d1fe5fa49ca43945e020cb0c7ee1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -666,7 +666,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 7957d1fe5fa49ca43945e020cb0c7ee1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -835,7 +835,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3e742e352b1b6f498dcf974ef3c7c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBtwWaves: 5
+  timeBtwWaves: 20
+  playerShooting: {fileID: 1073833092}
 --- !u!1 &613022344
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,7 +894,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 7957d1fe5fa49ca43945e020cb0c7ee1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1070,7 +1071,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 7957d1fe5fa49ca43945e020cb0c7ee1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1203,7 +1204,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 7957d1fe5fa49ca43945e020cb0c7ee1, type: 3}
   m_Color: {r: 0.33664113, g: 0.71865773, b: 0.8396226, a: 1}
   m_FlipX: 0
@@ -1279,6 +1280,7 @@ MonoBehaviour:
   - name: WaterBomb
     prefab: {fileID: 2209580069304972601, guid: 2379e6b3eb96de84fab4a1bca4a0acd0,
       type: 3}
+  spellStyle: 0
 --- !u!114 &1073833093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1424,7 +1426,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 7957d1fe5fa49ca43945e020cb0c7ee1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

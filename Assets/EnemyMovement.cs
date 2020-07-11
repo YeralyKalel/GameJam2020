@@ -47,7 +47,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (Time.time > 2.2f)
         {
-            if (path.Count > 1)
+            if (path.Count > 0)
             {
                 if(currentIndex > path.Count - 1)
                 {
@@ -55,21 +55,16 @@ public class EnemyMovement : MonoBehaviour
                 }
                 else
                 {
-                    if (Vector2.Distance(transform.position, new Vector2(path[currentIndex].x, path[currentIndex].y)) < thresholdDistance)
+                    if (Vector2.Distance(transform.position, new Vector2(path[currentIndex].x + 0.5f, path[currentIndex].y + 0.5f)) < thresholdDistance)
                     {
                         currentIndex++;
                     }
                     else
                     {
-                        transform.position = Vector2.MoveTowards(transform.position, new Vector2(path[currentIndex].x, path[currentIndex].y), moveSpeed * Time.deltaTime);
+                        transform.position = Vector2.MoveTowards(transform.position, new Vector2(path[currentIndex].x + 0.5f, path[currentIndex].y + 0.5f), moveSpeed * Time.deltaTime);
                     }
                 }                
             }
-            else
-            {
-                print("Destination Reached");
-            }
-
         }
     }
     
