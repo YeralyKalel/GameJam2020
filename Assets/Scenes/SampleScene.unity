@@ -963,7 +963,7 @@ GameObject:
   - component: {fileID: 1073833091}
   - component: {fileID: 1073833092}
   - component: {fileID: 1073833093}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1131,7 +1131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e91913fcbc16874a9bc662668c95244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerShooting: {fileID: 0}
+  playerShooting: {fileID: 1073833092}
 --- !u!1 &1508495180
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,7 +1144,7 @@ GameObject:
   - component: {fileID: 1508495181}
   - component: {fileID: 1508495183}
   - component: {fileID: 1508495184}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TestEnvironment
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -1321,7 +1321,7 @@ GameObject:
   - component: {fileID: 1738791894}
   - component: {fileID: 1738791895}
   - component: {fileID: 1738791893}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
