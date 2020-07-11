@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public enum EnemyType { melee, ranged};
+
+    public EnemyType enemyType;
+
+
     public EnemyCombat enemyCombat;
     // Start is called before the first frame update
 
