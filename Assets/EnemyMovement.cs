@@ -67,7 +67,7 @@ public class EnemyMovement : MonoBehaviour
             }
             else
             {
-                print("Destination Reached");
+                //print("Destination Reached");
             }
 
         }

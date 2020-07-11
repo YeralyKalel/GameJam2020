@@ -1125,7 +1125,7 @@ GameObject:
   - component: {fileID: 1073833093}
   m_Layer: 10
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1292,6 +1292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerShooting: {fileID: 1073833092}
+  maxHealth: 0
 --- !u!1001 &1190458070
 PrefabInstance:
   m_ObjectHideFlags: 0
