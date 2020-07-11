@@ -172,3 +172,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db5aaf152e827c4d8d0c3618a0b0260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minDamageInterval: 2
+  distanceThreshold: 1.2

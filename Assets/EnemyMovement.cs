@@ -57,8 +57,12 @@ public class EnemyMovement : MonoBehaviour
                 }
                 else
                 {
+
                     //If melee run this
                     if(GetComponent<EnemyController>().enemyType == EnemyController.EnemyType.melee)
+
+                    if (Vector2.Distance(transform.position, new Vector2(path[currentIndex].x + 0.5f, path[currentIndex].y + 0.5f)) < thresholdDistance)
+
                     {
                         if (Vector2.Distance(transform.position, new Vector2(path[currentIndex].x + 0.5f, path[currentIndex].y + 0.5f)) < thresholdDistance)
                         {
@@ -93,6 +97,7 @@ public class EnemyMovement : MonoBehaviour
                     }                    
                 }                
             }
+
         }
     }
     
