@@ -6,6 +6,8 @@ public class Projectile : MonoBehaviour
 {
     bool targetSet = false;
 
+    public float destroyTime = 5f;
+    private float currentTime = 0f;
 
     public float travelSpeed;
    
@@ -14,6 +16,8 @@ public class Projectile : MonoBehaviour
     {
         if (targetSet)
         {
+            currentTime += Time.deltaTime;
+            if (currentTime > destroyTime) Destroy(gameObject);
             transform.Translate(Vector2.up * travelSpeed * Time.deltaTime);
         }
     }
@@ -22,6 +26,7 @@ public class Projectile : MonoBehaviour
     public void SetTarget(Vector3 target)
     {
         targetSet = true;
+        currentTime = 0f;
 
         Vector3 direction = target - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
