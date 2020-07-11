@@ -30,6 +30,4 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = movement;
     }
-
-
 }
