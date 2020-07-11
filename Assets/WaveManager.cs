@@ -9,6 +9,10 @@ public class WaveManager : MonoBehaviour
 
     int currentWave = 1;
 
+
+    public PlayerShooting playerShooting;
+
+
     private void Update()
     {
         if(currentTime <= 0)
@@ -22,6 +26,7 @@ public class WaveManager : MonoBehaviour
                 spawnPointParent.GetChild(p).GetComponent<Spawnpoint>().Spawn(currentWave);
             }
 
+            ChangeSpell();            
             currentWave ++;
             currentTime = timeBtwWaves;
         }
@@ -29,5 +34,14 @@ public class WaveManager : MonoBehaviour
         {
             currentTime -= Time.deltaTime;
         }
+    }
+
+    void ChangeSpell()
+    {
+        int n = SpellStyle.GetNames(typeof(SpellStyle)).Length - 1;
+        System.Random r = new System.Random();
+        int rInt = r.Next(0, n);
+        playerShooting.SetupSpelling((SpellStyle)(rInt + 1));
+        //playerShooting.SetupSpelling(SpellStyle.Fireball);
     }
 }

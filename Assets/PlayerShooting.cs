@@ -12,7 +12,8 @@ public class PlayerShooting : MonoBehaviour
     public List<Spell> spells = new List<Spell>();
     private Dictionary<string, GameObject> spellObjects = new Dictionary<string, GameObject>();
 
-    private SpellStyle spellStyle = SpellStyle.Empty; //By default
+    [HideInInspector]
+    public SpellStyle spellStyle = SpellStyle.Empty; //By default
 
     public void SetupSpelling(SpellStyle spellStyle)
     {
