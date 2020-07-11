@@ -51,7 +51,7 @@ public class EnemyMovement : MonoBehaviour
         {
             if (path.Count > 0)
             {
-                if(currentIndex > path.Count - 1)
+                if (currentIndex > path.Count - 1)
                 {
                     print("This is not possible");
                 }
@@ -59,11 +59,8 @@ public class EnemyMovement : MonoBehaviour
                 {
 
                     //If melee run this
-                    if(GetComponent<EnemyController>().enemyType == EnemyController.EnemyType.melee)
-
-                    if (Vector2.Distance(transform.position, new Vector2(path[currentIndex].x + 0.5f, path[currentIndex].y + 0.5f)) < thresholdDistance)
-
-                    {
+                    if (GetComponent<EnemyController>().enemyType == EnemyController.EnemyType.melee)
+                    { 
                         if (Vector2.Distance(transform.position, new Vector2(path[currentIndex].x + 0.5f, path[currentIndex].y + 0.5f)) < thresholdDistance)
                         {
                             currentIndex++;
@@ -81,6 +78,7 @@ public class EnemyMovement : MonoBehaviour
                         {
                             //Shoot at the player
                             print("Should be shooting at the player");
+                            transform.GetComponent<EnemyCombat>().RangedAttack();
                         }
                         else
                         {

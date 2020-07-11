@@ -4,6 +4,26 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    #region Singleton
+
+    public static PlayerController instance;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Debug.LogWarning("There is more than one instance of this");
+        }
+    }
+
+    #endregion
+
+
+
     public PlayerShooting playerShooting;
     private int currentHealth;
     public int maxHealth;

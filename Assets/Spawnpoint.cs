@@ -7,7 +7,8 @@ public class Spawnpoint : MonoBehaviour
     private bool currentlySpawning = false;
     private int enemiesToSpawn;
 
-    public GameObject enemy;
+    public GameObject meleeEnemy;
+    public GameObject rangedEnemy;
 
     private void Update()
     {
@@ -28,12 +29,25 @@ public class Spawnpoint : MonoBehaviour
         currentlySpawning = true;
         enemiesToSpawn = Random.Range(currentWave, currentWave * 2);
 
-        InvokeRepeating("SpawnEnemy", 0.5f, 2.3f);
+        InvokeRepeating("SpawnEnemy", 0f, 2.3f);
     }
 
     void SpawnEnemy()
     {
-        Instantiate(enemy, transform.position, transform.rotation, EnemyManager.instance.transform);
+        int n = Random.Range(0, 3);
+
+        if(n== 0)
+        {
+            //spawn ranged enemy
+            Instantiate(rangedEnemy, transform.position, transform.rotation, EnemyManager.instance.transform);
+        }
+        else
+        {
+            //spawn melee enemy
+            Instantiate(meleeEnemy, transform.position, transform.rotation, EnemyManager.instance.transform);
+        }
+
+        
         enemiesToSpawn--;
     }
 }
