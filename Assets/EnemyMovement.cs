@@ -15,6 +15,8 @@ public class EnemyMovement : MonoBehaviour
 
     public float thresholdDistance;
 
+    public float attackRange;
+
     private void Start()
     {
         path = new List<PathNode>();
@@ -55,14 +57,40 @@ public class EnemyMovement : MonoBehaviour
                 }
                 else
                 {
-                    if (Vector2.Distance(transform.position, new Vector2(path[currentIndex].x + 0.5f , path[currentIndex].y + 0.5f)) < thresholdDistance)
+                    //If melee run this
+                    if(GetComponent<EnemyController>().enemyType == EnemyController.EnemyType.melee)
                     {
-                        currentIndex++;
+                        if (Vector2.Distance(transform.position, new Vector2(path[currentIndex].x + 0.5f, path[currentIndex].y + 0.5f)) < thresholdDistance)
+                        {
+                            currentIndex++;
+                        }
+                        else
+                        {
+                            transform.position = Vector2.MoveTowards(transform.position, new Vector2(path[currentIndex].x + 0.5f, path[currentIndex].y + 0.5f), moveSpeed * Time.deltaTime);
+                        }
                     }
+
+                    //If ranged run this
                     else
                     {
-                        transform.position = Vector2.MoveTowards(transform.position, new Vector2(path[currentIndex].x + 0.5f, path[currentIndex].y + 0.5f), moveSpeed * Time.deltaTime);
-                    }
+                        if(Vector2.Distance(transform.position, new Vector2(em.playerX, em.playerY)) < attackRange)
+                        {
+                            //Shoot at the player
+                            print("Should be shooting at the player");
+                        }
+                        else
+                        {
+                            if (Vector2.Distance(transform.position, new Vector2(path[currentIndex].x + 0.5f, path[currentIndex].y + 0.5f)) < thresholdDistance)
+                            {
+                                currentIndex++;
+                            }
+                            else
+                            {
+                                transform.position = Vector2.MoveTowards(transform.position, new Vector2(path[currentIndex].x + 0.5f, path[currentIndex].y + 0.5f), moveSpeed * Time.deltaTime);
+                            }
+                        }
+
+                    }                    
                 }                
             }
         }
