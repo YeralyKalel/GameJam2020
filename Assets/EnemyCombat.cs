@@ -31,6 +31,7 @@ public class EnemyCombat : MonoBehaviour
 
     private void Update()
     {
+        //Check if it is melee first, if it is not: "return;"
         currentDamageInterval += Time.deltaTime;
         if (currentDamageInterval < minDamageInterval) return;
         if (n == 2)

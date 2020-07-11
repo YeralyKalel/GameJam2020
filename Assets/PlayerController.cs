@@ -26,8 +26,8 @@ public class PlayerController : MonoBehaviour
     public void GetDamage()
     {
         if (isDead) return;
-        Debug.Log(currentHealth);
         currentHealth--;
+        Debug.Log(currentHealth);
         if (currentHealth > 0)
         {
             //Hit animation on player
