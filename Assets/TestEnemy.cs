@@ -84,7 +84,7 @@ public class TestEnemy : MonoBehaviour
         path.Clear();
         path = pathfinding.FindPath(thisX, thisY, em.playerX, em.playerY);
 
-        if(path.Count > 1)
+        if(path.Count > 0)
         {
             path.Remove(pathfinding.GetNode(thisX, thisY));
         }
