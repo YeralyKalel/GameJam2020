@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
         } else
         {
             //Game over
+            Debug.Log("Game Over");
             isDead = true;
         }
     }
