@@ -8,6 +8,8 @@ public class Fireball : MonoBehaviour
     public float travelSpeed;
     public float maxDistance;
     private float travelDistance = 0f;
+    
+    public int nKills = 1;
 
     private void Update()
     {
@@ -64,7 +66,10 @@ public class Fireball : MonoBehaviour
             DestroyObject();
         } else if (collisonTag == "Enemy")
         {
-            //Hit enemy
+            if (nKills < 1) return;
+            //Put animation as input to Die function
+            nKills--;
+            collision.GetComponent<EnemyController>().Die();
             DestroyObject();
         }
     }

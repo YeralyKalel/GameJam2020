@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
         System.Random r = new System.Random();
         int rInt = r.Next(0, n);
         playerShooting.SetupSpelling((SpellStyle) (rInt + 1));
-        playerShooting.SetupSpelling(SpellStyle.Fireball);
+        //playerShooting.SetupSpelling(SpellStyle.Fireball);
     }
 
 

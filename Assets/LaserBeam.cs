@@ -5,7 +5,6 @@ using UnityEngine.UIElements;
 
 public class LaserBeam : MonoBehaviour
 {
-
     public float offset;
 
     private void Update()
@@ -31,7 +30,8 @@ public class LaserBeam : MonoBehaviour
             //Shorten the length of beam until environment using ray
         } else if (collisonTag == "Enemy")
         {
-            //Cut animation and hit enemy
+            //Put animation as input to Die function (cut into two)
+            collision.GetComponent<EnemyController>().Die();
         }
     }
     private void DestroyObject()

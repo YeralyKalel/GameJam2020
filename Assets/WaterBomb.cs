@@ -25,6 +25,8 @@ public class WaterBomb : MonoBehaviour
 
     public float explosionTime;
 
+    public int nKills = 1;
+
     // Update is called once per frame
     void Update()
     {
@@ -48,6 +50,7 @@ public class WaterBomb : MonoBehaviour
             else
             {
                 onGround = true;
+                nKills = 1;
                 currentBounceDisplacement = 0;
                 currentBounces++;
             }
@@ -80,7 +83,7 @@ public class WaterBomb : MonoBehaviour
             }
             else
             {
-                angle = angle - 90;
+                angle -= 90;
                 transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, angle);
             }
         }
@@ -88,12 +91,12 @@ public class WaterBomb : MonoBehaviour
         {
             if (target.y >= transform.position.y)
             {
-                angle = angle - 90;
+                angle -= 90;
                 transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, angle);
             }
             else
             {
-                angle = 90 + (180 + angle);
+                angle += 270;
                 transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, angle);
             }
         }
@@ -112,10 +115,15 @@ public class WaterBomb : MonoBehaviour
             {
                 if (isDestroying)
                 {
-                    //Explode enemy
-                } else
+                    //Put animation as input to Die function (explode)
+                    collision.GetComponent<EnemyController>().Die();
+                }
+                else
                 {
-                    //Hit enemy
+                    if (nKills < 1) return;
+                    nKills--;
+                    //Put animation as input to Die function (hit)
+                    collision.GetComponent<EnemyController>().Die();
                 }
             }
         }

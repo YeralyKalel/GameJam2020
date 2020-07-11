@@ -29,7 +29,6 @@ public class EnemyManager : MonoBehaviour
     public int playerX;
     public int playerY;
 
-
     private void Update() //Maybe make it update every however much time rather than every frame as that is very expensive
     {        
        playerX = Mathf.RoundToInt(player.position.x - 0.5f);
