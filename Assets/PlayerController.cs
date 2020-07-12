@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     public PlayerShooting playerShooting;
     public PlayerMovement playerMovement;
+    public Action GameOver;
 
     private int currentHealth;
     public int maxHealth;
@@ -60,14 +62,13 @@ public class PlayerController : MonoBehaviour
 
     public void Initialize()
     {
-        playerShooting.Initialize();
-        playerMovement.Initialize();
+        Activate(false);
     }
 
-    public void Activate()
+    public void Activate(bool val)
     {
-        playerShooting.Activate();
-        playerMovement.Activate();
+        playerShooting.Activate(val);
+        playerMovement.Activate(val); ;
     }
 
     public void GetDamage()
@@ -85,7 +86,7 @@ public class PlayerController : MonoBehaviour
         } else
         {
             //Game over
-            GameOverPanel.SetActive(true);
+            GameOver();
             isDead = true;
         }
     }

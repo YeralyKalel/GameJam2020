@@ -26,9 +26,16 @@ public class EnemyMovement : MonoBehaviour
         InvokeRepeating("UpdatePath", 2f, 0.25f);
     }
 
+    bool isActive;
+    public void Activate(bool val)
+    {
+        isActive = val;
+    }
+
     private void Update()
     {
-        if(em.startDelay < Time.time)
+        if (!isActive) return;
+        if (em.startDelay < Time.time)
         {
             if (!pathfindingSet)
             {
@@ -42,6 +49,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!isActive) return;
         Move();
     }
 
@@ -102,6 +110,7 @@ public class EnemyMovement : MonoBehaviour
 
     void UpdatePath()
     {
+        if (!isActive) return;
         int thisX = Mathf.RoundToInt(transform.position.x - 0.5f);
         int thisY = Mathf.RoundToInt(transform.position.y - 0.5f);
 

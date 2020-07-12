@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public GameObject MainMenuUI;
     public GameObject GameUI;
     public GameObject TutorialUI;
+    public GameObject GameOverUI;
 
     public Button startButton;
     public Button quitButton;
@@ -35,6 +36,11 @@ public class UIManager : MonoBehaviour
         tutorialFinishButton.onClick.RemoveAllListeners();
         TutorialFinishedAction();
         TutorialUI.SetActive(false);
+    }
+
+    public void GameOver()
+    {
+        GameOverUI.SetActive(true);
     }
 
 

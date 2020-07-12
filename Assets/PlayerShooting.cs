@@ -28,13 +28,9 @@ public class PlayerShooting : MonoBehaviour
 
     private bool isActive;
 
-    public void Initialize()
+    public void Activate(bool val)
     {
-        isActive = false;
-    }
-    public void Activate()
-    {
-        isActive = true;
+        isActive = val;
     }
 
 

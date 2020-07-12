@@ -163,6 +163,7 @@ MonoBehaviour:
   enemyType: 0
   health: 2
   enemyCombat: {fileID: 6432839089974644416}
+  enemyMovement: {fileID: 6432839089974644430}
 --- !u!114 &6432839089974644416
 MonoBehaviour:
   m_ObjectHideFlags: 0

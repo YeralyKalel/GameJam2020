@@ -17,13 +17,9 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isActive;
 
-    public void Initialize()
+    public void Activate(bool val)
     {
-        isActive = false;
-    }
-    public void Activate()
-    {
-        isActive = true;
+        isActive = val;
     }
 
     void Update()

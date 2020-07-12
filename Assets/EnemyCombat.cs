@@ -19,12 +19,6 @@ public class EnemyCombat : MonoBehaviour
     public GameObject enemyProjectile;
 
 
-    public void Die()
-    {
-        //Die animation
-        Destroy(gameObject);
-    }
-
     void Start()
     {
         currentDamageInterval = minDamageInterval;
@@ -37,8 +31,15 @@ public class EnemyCombat : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
+    bool isActive;
+    public void Activate(bool val)
+    {
+        isActive = val;
+    }
+
     private void Update()
     {
+        if (!isActive) return;
         if (GetComponent<EnemyController>().enemyType == EnemyController.EnemyType.melee)
         {
             //Check if it is melee first, if it is not: "return;"

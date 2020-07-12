@@ -37,12 +37,12 @@ public class WaveManager : MonoBehaviour
 
     public void Initialize()
     {
-        isActive = false;
+        Activate(false);
     }
 
-    public void StartWave()
+    public void Activate(bool val)
     {
-        isActive = true;
+        isActive = val;
     }
 
     private void Update()
