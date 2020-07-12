@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     {
         foreach (EnemyController e in enemyControllers)
         {
-            if (e.gameObject == null) continue;
+            if (e == null) continue;
             Destroy(e.gameObject);
         }
         enemyControllers = new List<EnemyController>();
