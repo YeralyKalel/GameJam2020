@@ -42,9 +42,9 @@ public class PlayerShooting : MonoBehaviour
                 restoreBulletTime = 0.5f;
                 break;
             case SpellStyle.Meteor:
-                maxBulletNumber = 3;
+                maxBulletNumber = 2;
                 currentBulletNumber = maxBulletNumber;
-                restoreBulletTime = 1.25f;
+                restoreBulletTime = 1.75f;
                 break;
             default:
                 Debug.LogWarning("Spell doesn't selected");
