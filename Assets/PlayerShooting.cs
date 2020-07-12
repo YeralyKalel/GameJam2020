@@ -24,9 +24,32 @@ public class PlayerShooting : MonoBehaviour
         }
 
         this.spellStyle = spellStyle;
+
+        switch (spellStyle)
+        {
+            case SpellStyle.Fireball:
+                maxBulletNumber = 5;
+                currentBulletNumber = maxBulletNumber;
+                restoreBulletTime = 0.5f;
+                break;
+            case SpellStyle.LaserBeam:
+                break;
+            case SpellStyle.WaterBomb:
+                maxBulletNumber = 3;
+                currentBulletNumber = maxBulletNumber;
+                restoreBulletTime = 0.5f;
+                break;
+            default:
+                Debug.LogWarning("Spell doesn't selected");
+                return;
+        }
     }
 
     private bool isActive;
+    private int currentBulletNumber;
+    private int maxBulletNumber;
+    private float restoreBulletTime;
+    private float currentTimeRestore;
 
     public void Activate(bool val)
     {
@@ -37,6 +60,17 @@ public class PlayerShooting : MonoBehaviour
     void Update()
     {
         if (!isActive) return;
+
+        if (currentTimeRestore > restoreBulletTime)
+        {
+            currentTimeRestore = 0;
+            currentBulletNumber++;
+        }
+        else if (currentBulletNumber < maxBulletNumber)
+        {
+            currentTimeRestore += Time.deltaTime * restoreBulletTime;
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 target;
@@ -47,16 +81,24 @@ public class PlayerShooting : MonoBehaviour
             switch (spellStyle)
             {
                 case SpellStyle.Fireball:
-                    GameObject fireball = Instantiate(spellObjects["Fireball"], transform.position, transform.rotation);
-                    fireball.GetComponent<Fireball>().SetupFireball(target);
+                    if (currentBulletNumber > 0)
+                    {
+                        GameObject fireball = Instantiate(spellObjects["Fireball"], transform.position, transform.rotation);
+                        fireball.GetComponent<Fireball>().SetupFireball(target);
+                        currentBulletNumber--;
+                    }
                     break;
                 case SpellStyle.LaserBeam:
                     GameObject laserBeam = Instantiate(spellObjects["LaserBeam"], transform.position, transform.rotation, gameObject.transform);
                     laserBeam.GetComponent<LaserBeam>().SetupLaserBeam();
                     break;
                 case SpellStyle.WaterBomb:
-                    GameObject waterBomb = Instantiate(spellObjects["WaterBomb"], transform.position, transform.rotation);
-                    waterBomb.GetComponent<WaterBomb>().SetupWaterBomb(target);
+                    if (currentBulletNumber > 0)
+                    {
+                        GameObject waterBomb = Instantiate(spellObjects["WaterBomb"], transform.position, transform.rotation);
+                        waterBomb.GetComponent<WaterBomb>().SetupWaterBomb(target);
+                        currentBulletNumber--;
+                    }
                     break;
                 default:
                     Debug.LogWarning("Spell doesn't selected");

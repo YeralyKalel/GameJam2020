@@ -3574,12 +3574,18 @@ MonoBehaviour:
   - name: Fireball
     prefab: {fileID: 1486201083800590923, guid: 6e42a83663fe91044865ae620e631547,
       type: 3}
+    maxBullets: 5
+    restoreRate: 0.5
   - name: LaserBeam
     prefab: {fileID: 6731288603896095779, guid: 37e09d36be1e9854a82e27e988cf9daf,
       type: 3}
+    maxBullets: 1
+    restoreRate: 0
   - name: WaterBomb
     prefab: {fileID: 2209580069304972601, guid: 2379e6b3eb96de84fab4a1bca4a0acd0,
       type: 3}
+    maxBullets: 3
+    restoreRate: 0.5
   spellStyle: 0
 --- !u!114 &1073833093
 MonoBehaviour:
