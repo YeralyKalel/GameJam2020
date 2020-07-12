@@ -11,14 +11,8 @@ public class LaserBeam : MonoBehaviour
     {
         if (!Input.GetMouseButton(0) || transform.parent.GetComponent<PlayerShooting>().spellStyle != SpellStyle.LaserBeam)
         {
-            DestroyObject();
+            gameObject.SetActive(false);
         }
-    }
-
-
-    public void SetupLaserBeam()
-    {
-        gameObject.transform.localPosition = new Vector3(offset, 0, 0);
     }
 
 

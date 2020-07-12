@@ -122,8 +122,8 @@ public class WaterBomb : MonoBehaviour
                 {
                     if (nKills < 1) return;
                     nKills--;
-                    //Put animation as input to Die function (hit)
                     collision.GetComponent<EnemyController>().TakeDamage(10);
+                    //Put animation as input to Die function (hit)
                 }
             }
         }
@@ -134,7 +134,7 @@ public class WaterBomb : MonoBehaviour
         if (isDestroying) return;
         onGround = true;
         isDestroying = true;
-        boxCollider.size = Vector2.one * explosionRange;
+        //boxCollider.size = Vector2.one * explosionRange;
         Destroy(gameObject, explosionTime);
     }
 

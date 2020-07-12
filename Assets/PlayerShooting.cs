@@ -89,8 +89,7 @@ public class PlayerShooting : MonoBehaviour
                     }
                     break;
                 case SpellStyle.LaserBeam:
-                    GameObject laserBeam = Instantiate(spellObjects["LaserBeam"], transform.position, transform.rotation, gameObject.transform);
-                    laserBeam.GetComponent<LaserBeam>().SetupLaserBeam();
+                    transform.GetChild(0).gameObject.SetActive(true);
                     break;
                 case SpellStyle.WaterBomb:
                     if (currentBulletNumber > 0)

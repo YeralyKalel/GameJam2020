@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveManager : MonoBehaviour
 {
@@ -32,6 +34,8 @@ public class WaveManager : MonoBehaviour
 
     int currentWave;
     bool isSpawning;
+
+    public TextMeshProUGUI timerText;
 
 
     public PlayerShooting playerShooting;
@@ -90,6 +94,26 @@ public class WaveManager : MonoBehaviour
         {
             currentTime -= Time.deltaTime;
         }
+
+
+
+        int firstPart = Mathf.RoundToInt(currentTime / 60);
+        string stringFirstPart = firstPart.ToString().Substring(0, 1);
+        int firstNum = Convert.ToInt32(stringFirstPart);
+        int secondPart = Mathf.RoundToInt(currentTime % 60);
+
+        if (secondPart < 10)
+        {
+            string timeSentence = firstPart.ToString() + ":0" + secondPart.ToString();
+            timerText.text = timeSentence;
+        }
+        else
+        {
+            string timeSentence = firstPart.ToString() + ":" + secondPart.ToString();
+            timerText.text = timeSentence;
+        }
+
+
     }
 
     void SetupText() {

@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2209580069304972601}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalPosition: {x: 0, y: 0.072, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -46,18 +46,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -1.6203425}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.71, y: 1.71}
+    oldSize: {x: 20, y: 20}
     newSize: {x: 1.71, y: 1.71}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.71, y: 1.71}
+  m_Size: {x: 10.1774025, y: 10.337925}
   m_EdgeRadius: 0
 --- !u!212 &2209580069304972602
 SpriteRenderer:
@@ -98,8 +98,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 7957d1fe5fa49ca43945e020cb0c7ee1, type: 3}
-  m_Color: {r: 0, g: 0.95156765, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 966d26527359baa4fb318ea5428e5fb4, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -122,11 +122,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxCollider: {fileID: 2209580069304972603}
-  nBounces: 3
+  nBounces: 2
   maxSpeed: 3
   maxBounceDistance: 3
-  sizeUp: 0.8
-  sizeDown: 0.2
+  sizeUp: 0.1
+  sizeDown: 0.05
   explosionRange: 0.5
   explosionTime: 2
   nKills: 1
