@@ -36,6 +36,7 @@ public class UIManager : MonoBehaviour
     {
         TutorialUI.SetActive(true);
         GameOverUI.SetActive(false);
+        HealthBarUI.SetActive(false);
         SpellsUI.SetActive(false);
         RoundNumberUI.SetActive(false);
         tutorialFinishButton.onClick.AddListener(FinishTutorial);

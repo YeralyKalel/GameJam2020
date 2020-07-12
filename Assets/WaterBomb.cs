@@ -33,16 +33,22 @@ public class WaterBomb : MonoBehaviour
         if (isDestroying) return;
         if (currentBounces < nBounces)
         {
-            if (currentBounceDisplacement < 0.5*maxBounceDistance)
+            if (currentBounceDisplacement < 0.1 * maxBounceDistance || currentBounceDisplacement > 0.9 * maxBounceDistance)
+            {
+                onGround = true;
+            }
+            else
             {
                 onGround = false;
+            }
+            if (currentBounceDisplacement < 0.5*maxBounceDistance)
+            {
                 float t = currentBounceDisplacement / (0.5f * maxBounceDistance);
                 currentSize = sizeDown * (1 - t) + sizeUp * t;
                 this.gameObject.transform.localScale = Vector3.one * currentSize;
             }
             else if (currentBounceDisplacement < maxBounceDistance)
             {
-                onGround = false;
                 float t = (currentBounceDisplacement - 0.5f*maxBounceDistance) / (0.5f * maxBounceDistance);
                 currentSize = sizeDown * t + sizeUp * (1 - t);
                 this.gameObject.transform.localScale = Vector3.one * currentSize;
@@ -136,7 +142,7 @@ public class WaterBomb : MonoBehaviour
         if (isDestroying) return;
         onGround = true;
         isDestroying = true;
-        //boxCollider.size = Vector2.one * explosionRange;
+        boxCollider.size = Vector2.one * explosionRange;
         Destroy(gameObject, explosionTime);
     }
 
