@@ -37,6 +37,7 @@ public class Meteor : MonoBehaviour
         //spawn particles
         Instantiate(explosion, transform.position, transform.rotation, ParticleParent.instance.transform);
         Camera.main.GetComponent<CameraShake>().Shake(0.05f, 0.3f);
+        PlayerAudio.instance.LargeExplosion();
         Destroy(gameObject, destroyDelay);
     }
 

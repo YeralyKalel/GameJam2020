@@ -39,6 +39,7 @@ public class EnemyController : MonoBehaviour
 
     private void Die()
     {
+        PlayerAudio.instance.PlayGetHit();
         Destroy(gameObject);
     }
 }

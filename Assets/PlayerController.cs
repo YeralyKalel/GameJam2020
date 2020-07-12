@@ -74,6 +74,9 @@ public class PlayerController : MonoBehaviour
 
         healthUIParent.transform.GetChild(currentHealth - 1).gameObject.SetActive(false);
         currentHealth--;
+
+        GetComponent<PlayerAudio>().PlayGetHit();
+
         if (currentHealth > 0)
         {
             //Hit animation on player
