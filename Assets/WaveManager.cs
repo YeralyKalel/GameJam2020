@@ -31,6 +31,7 @@ public class WaveManager : MonoBehaviour
     public TMP_Text textObject;
 
     int currentWave = 0;
+    bool isSpawning;
 
 
     public PlayerShooting playerShooting;
@@ -38,6 +39,7 @@ public class WaveManager : MonoBehaviour
     public void Initialize()
     {
         Activate(false);
+        isSpawning = false;
     }
 
     public void Activate(bool val)
@@ -47,7 +49,19 @@ public class WaveManager : MonoBehaviour
 
     private void Update()
     {
-        if (!isActive) return;
+        if (!isActive)
+        {
+            if (isSpawning)
+            {
+                Transform spawnPointParent = transform.GetChild(0);
+                for (int p = 0; p < spawnPointParent.childCount; p++)
+                {
+                    spawnPointParent.GetChild(p).GetComponent<Spawnpoint>().StopSpawning();
+                }
+                isSpawning = false;
+            }
+            return;
+        }
         if(currentTime <= 0)
         {
             //spawn new wave of enemies
@@ -55,10 +69,12 @@ public class WaveManager : MonoBehaviour
             Transform spawnPointParent = transform.GetChild(0);
 
             currentWave++;
+            isSpawning = true;
             for (int p = 0; p < spawnPointParent.childCount; p++)
             {
                 spawnPointParent.GetChild(p).GetComponent<Spawnpoint>().Spawn(currentWave);
             }
+
             ChangeSpell();
             SetupText();
             currentTime = timeBtwWaves;

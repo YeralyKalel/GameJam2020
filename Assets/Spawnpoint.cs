@@ -22,7 +22,10 @@ public class Spawnpoint : MonoBehaviour
         }
     }
 
-
+    public void StopSpawning()
+    {
+        CancelInvoke(); 
+    }
 
     public void Spawn(int currentWave)
     {
