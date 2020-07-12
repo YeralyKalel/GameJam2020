@@ -11,6 +11,10 @@ public class Fireball : MonoBehaviour
     
     public int nKills = 1;
 
+    //Particles
+
+    public ParticleSystem explosion;
+
     private void Update()
     {
         if (targetSet)
@@ -77,6 +81,8 @@ public class Fireball : MonoBehaviour
     private void DestroyObject()
     {
         //Add destroy animation here
+        Instantiate(explosion, transform.position, transform.rotation, ParticleParent.instance.transform);
+
         Destroy(gameObject);
     }
 

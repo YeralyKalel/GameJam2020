@@ -32,12 +32,27 @@ public class PlayerController : MonoBehaviour
     private int currentHealth;
     public int maxHealth;
     private bool isDead;
+
+    //Crystal UI
+    public GameObject healthUIParent;
     
     public void Setup()
     {
         //Change later
-        currentHealth = 3;
-        //
+        currentHealth = maxHealth;
+
+        if(maxHealth > healthUIParent.transform.childCount)
+        {
+            print("MAX HEALTH IS GREAT THAT CRYSTALS AVAILABLE PLS LOWER THE MAX HEALTH");
+        }
+        else
+        {
+            for (int p = 0; p < maxHealth; p++)
+            {
+                healthUIParent.transform.GetChild(p).gameObject.SetActive(true);
+            }
+        }
+
         GameOverPanel.SetActive(false);
 
         isDead = false;
@@ -58,7 +73,11 @@ public class PlayerController : MonoBehaviour
     public void GetDamage()
     {
         if (isDead) return;
+
+
+        healthUIParent.transform.GetChild(currentHealth - 1).gameObject.SetActive(false);
         currentHealth--;
+
         Debug.Log(currentHealth);
         if (currentHealth > 0)
         {
