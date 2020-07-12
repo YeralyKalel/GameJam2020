@@ -12,8 +12,11 @@ public class Fireball : MonoBehaviour
     public int nKills = 1;
 
     //Particles
-
     public ParticleSystem explosion;
+
+    //CameraShake
+    public float camShakeAmt;
+    public float camShakeDuration;
 
     private void Update()
     {
@@ -82,7 +85,7 @@ public class Fireball : MonoBehaviour
     {
         //Add destroy animation here
         Instantiate(explosion, transform.position, transform.rotation, ParticleParent.instance.transform);
-
+        Camera.main.GetComponent<CameraShake>().Shake(camShakeAmt, camShakeDuration);
         Destroy(gameObject);
     }
 

@@ -129,6 +129,8 @@ MonoBehaviour:
   nKills: 1
   explosion: {fileID: 5172416892972294449, guid: 1e65a2e37ada97641aa73fd477eae07f,
     type: 3}
+  camShakeAmt: 0.025
+  camShakeDuration: 0.2
 --- !u!1 &4695114101373019550
 GameObject:
   m_ObjectHideFlags: 0
