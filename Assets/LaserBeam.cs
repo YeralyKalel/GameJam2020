@@ -7,11 +7,27 @@ public class LaserBeam : MonoBehaviour
 {
     public float offset;
 
+    AudioSource ads;
+
+    private void Start()
+    {
+        ads = GetComponent<AudioSource>();
+    }
+
+
     private void Update()
     {
         if (!Input.GetMouseButton(0) || transform.parent.GetComponent<PlayerShooting>().spellStyle != SpellStyle.LaserBeam)
         {
             gameObject.SetActive(false);
+        }
+
+        if (gameObject.activeInHierarchy)
+        {
+            if (!ads.isPlaying)
+            {
+                ads.Play();
+            }
         }
     }
 

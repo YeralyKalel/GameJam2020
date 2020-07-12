@@ -86,6 +86,7 @@ public class Fireball : MonoBehaviour
         //Add destroy animation here
         Instantiate(explosion, transform.position, transform.rotation, ParticleParent.instance.transform);
         Camera.main.GetComponent<CameraShake>().Shake(camShakeAmt, camShakeDuration);
+        PlayerAudio.instance.SmallExplosion();
         Destroy(gameObject);
     }
 

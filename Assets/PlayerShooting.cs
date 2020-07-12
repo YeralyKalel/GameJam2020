@@ -32,7 +32,7 @@ public class PlayerShooting : MonoBehaviour
             case SpellStyle.Fireball:
                 maxBulletNumber = 5;
                 currentBulletNumber = maxBulletNumber;
-                restoreBulletTime = 0.5f;
+                restoreBulletTime = 0.25f;
                 break;
             case SpellStyle.LaserBeam:
                 break;
@@ -97,12 +97,14 @@ public class PlayerShooting : MonoBehaviour
                     break;
                 case SpellStyle.LaserBeam:
                     transform.GetChild(0).gameObject.SetActive(true);
+                    PlayerAudio.instance.LaserStart();
                     break;
                 case SpellStyle.WaterBomb:
                     if (currentBulletNumber > 0)
                     {
                         GameObject waterBomb = Instantiate(spellObjects["WaterBomb"], rightHand.position, rightHand.rotation);
                         waterBomb.GetComponent<WaterBomb>().SetupWaterBomb(target);
+                        PlayerAudio.instance.WaterBomb();
                         currentBulletNumber--;
                     }
                     break;
