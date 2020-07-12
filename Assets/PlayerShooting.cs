@@ -83,7 +83,7 @@ public class PlayerShooting : MonoBehaviour
                 case SpellStyle.Fireball:
                     if (currentBulletNumber > 0)
                     {
-                        GameObject fireball = Instantiate(spellObjects["Fireball"], transform.position, transform.rotation);
+                        GameObject fireball = Instantiate(spellObjects["Fireball"], transform.position + new Vector3(0.5f, -0.5f, 0f), transform.rotation);
                         fireball.GetComponent<Fireball>().SetupFireball(target);
                         currentBulletNumber--;
                     }
