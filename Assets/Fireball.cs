@@ -69,7 +69,7 @@ public class Fireball : MonoBehaviour
             if (nKills < 1) return;
             //Put animation as input to Die function
             nKills--;
-            collision.GetComponent<EnemyController>().Die();
+            collision.GetComponent<EnemyController>().TakeDamage(1);
             DestroyObject();
         }
     }

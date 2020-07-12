@@ -31,7 +31,7 @@ public class LaserBeam : MonoBehaviour
         } else if (collisonTag == "Enemy")
         {
             //Put animation as input to Die function (cut into two)
-            collision.GetComponent<EnemyController>().Die();
+            collision.GetComponent<EnemyController>().TakeDamage(1);
         }
     }
     private void DestroyObject()

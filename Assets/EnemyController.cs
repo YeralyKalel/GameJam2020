@@ -8,11 +8,29 @@ public class EnemyController : MonoBehaviour
 
     public EnemyType enemyType;
 
+    public int health;
+
 
     public EnemyCombat enemyCombat;
     // Start is called before the first frame update
+    public void SetPlayer()
+    {
 
-    public void Die()
+    }
+
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+
+        if(health <= 0)
+        {
+            Die();
+        }
+    }
+
+
+    private void Die()
     {
         enemyCombat.Die();
 

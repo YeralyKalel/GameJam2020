@@ -5,6 +5,25 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
+    #region Singleton
+
+    public static WaveManager instance;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Debug.LogWarning("You have more than one instance of this");
+        }
+    }
+
+    #endregion
+
+
     public float timeBtwWaves;
     private float currentTime;
     public bool isActive;
