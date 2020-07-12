@@ -22,7 +22,7 @@ public class EnemyMovement : MonoBehaviour
         path = new List<PathNode>();
 
         em = EnemyManager.instance;
-
+        timeForLook = 0f;
         InvokeRepeating("UpdatePath", 2f, 0.25f);
     }
 
@@ -53,8 +53,11 @@ public class EnemyMovement : MonoBehaviour
         Move();
     }
 
+    private float timeForLook;
+
     void Move()
     {
+        timeForLook += Time.deltaTime;
         if (Time.time > 2.2f)
         {
             if (path.Count > 0)
@@ -65,7 +68,13 @@ public class EnemyMovement : MonoBehaviour
                 }
                 else
                 {
-
+                    if (timeForLook > 0.2f)
+                    {
+                        timeForLook = 0;
+                        Vector3 target = em.player.position - transform.position;
+                        float angle = Mathf.Atan2(target.y, target.x) * Mathf.Rad2Deg;
+                        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+                    }
                     //If melee run this
                     if (GetComponent<EnemyController>().enemyType == EnemyController.EnemyType.melee)
                     { 

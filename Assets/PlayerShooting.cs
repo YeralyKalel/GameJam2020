@@ -15,6 +15,8 @@ public class PlayerShooting : MonoBehaviour
     [HideInInspector]
     public SpellStyle spellStyle = SpellStyle.Empty; //By default
 
+    public Transform rightHand;
+
     public void SetupSpelling(SpellStyle spellStyle)
     {
         spellObjects = new Dictionary<string, GameObject>();
@@ -83,7 +85,7 @@ public class PlayerShooting : MonoBehaviour
                 case SpellStyle.Fireball:
                     if (currentBulletNumber > 0)
                     {
-                        GameObject fireball = Instantiate(spellObjects["Fireball"], transform.position + new Vector3(0.5f, -0.5f, 0f), transform.rotation);
+                        GameObject fireball = Instantiate(spellObjects["Fireball"], rightHand.position, rightHand.rotation);
                         fireball.GetComponent<Fireball>().SetupFireball(target);
                         currentBulletNumber--;
                     }
@@ -94,7 +96,7 @@ public class PlayerShooting : MonoBehaviour
                 case SpellStyle.WaterBomb:
                     if (currentBulletNumber > 0)
                     {
-                        GameObject waterBomb = Instantiate(spellObjects["WaterBomb"], transform.position, transform.rotation);
+                        GameObject waterBomb = Instantiate(spellObjects["WaterBomb"], rightHand.position, rightHand.rotation);
                         waterBomb.GetComponent<WaterBomb>().SetupWaterBomb(target);
                         currentBulletNumber--;
                     }
