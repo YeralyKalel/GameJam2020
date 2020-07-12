@@ -15,8 +15,20 @@ public class PlayerMovement : MonoBehaviour
         smoothAngle = 0f;
     }
 
+    private bool isActive;
+
+    public void Initialize()
+    {
+        isActive = false;
+    }
+    public void Activate()
+    {
+        isActive = true;
+    }
+
     void Update()
     {
+        if (!isActive) return;
         Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0, 0, 10);
         target = new Vector3(target.x - transform.position.x, target.y - transform.position.y, 0);
         float angle = Mathf.Atan2(target.y, target.x) * Mathf.Rad2Deg;

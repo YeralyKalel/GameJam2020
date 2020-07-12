@@ -26,8 +26,21 @@ public class PlayerShooting : MonoBehaviour
         this.spellStyle = spellStyle;
     }
 
+    private bool isActive;
+
+    public void Initialize()
+    {
+        isActive = false;
+    }
+    public void Activate()
+    {
+        isActive = true;
+    }
+
+
     void Update()
     {
+        if (!isActive) return;
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 target;

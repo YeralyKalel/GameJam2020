@@ -10,9 +10,21 @@ public class CameraFollow : MonoBehaviour
     public float smoothSpeed;
     public Vector3 offset;
 
+    private bool isActive;
+
+    public void Initialize()
+    {
+        isActive = false;
+    }
+
+    public void StartGame()
+    {
+        isActive = true;
+    }
 
     private void FixedUpdate()
     {
+        if (!isActive) return;
         targetPos = new Vector3(target.position.x, target.position.y, -10);
         Vector3 desiredPosition = targetPos + offset;
 

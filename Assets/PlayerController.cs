@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,9 +23,12 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
-
+    public GameObject GameOverPanel;
+    
 
     public PlayerShooting playerShooting;
+    public PlayerMovement playerMovement;
+
     private int currentHealth;
     public int maxHealth;
     private bool isDead;
@@ -34,13 +38,21 @@ public class PlayerController : MonoBehaviour
         //Change later
         currentHealth = 3;
         //
+        GameOverPanel.SetActive(false);
 
         isDead = false;
-        int n = SpellStyle.GetNames(typeof(SpellStyle)).Length - 1;
-        System.Random r = new System.Random();
-        int rInt = r.Next(0, n);
-        playerShooting.SetupSpelling((SpellStyle) (rInt + 1));
-        //playerShooting.SetupSpelling(SpellStyle.Fireball);
+    }
+
+    public void Initialize()
+    {
+        playerShooting.Initialize();
+        playerMovement.Initialize();
+    }
+
+    public void Activate()
+    {
+        playerShooting.Activate();
+        playerMovement.Activate();
     }
 
     public void GetDamage()
@@ -54,7 +66,7 @@ public class PlayerController : MonoBehaviour
         } else
         {
             //Game over
-            Debug.Log("Game Over");
+            GameOverPanel.SetActive(true);
             isDead = true;
         }
     }

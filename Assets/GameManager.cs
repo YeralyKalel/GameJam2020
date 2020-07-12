@@ -5,14 +5,46 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public PlayerController playerController;
-    // Start is called before the first frame update
+    public WaveManager waveManager;
+    public UIManager uiManager;
+    public CameraFollow cameraManager;
+
     private void Awake()
     {
-        StartGame();
+        Initialize();
     }
-    private void StartGame()
+
+    private bool showTutorial;
+
+    private void Initialize()
+    {
+        uiManager.StartGameAction += SetupEnvironment;
+        uiManager.TutorialFinishedAction += StartGame;
+        uiManager.Initialize();
+        cameraManager.Initialize();
+        waveManager.Initialize();
+        playerController.Initialize();
+        showTutorial = true;
+    }
+    private void SetupEnvironment()
     {
         SetupPlayer();
+        if (showTutorial)
+        {
+            showTutorial = false;
+            uiManager.ShowTutorial();
+        }
+        else
+        {
+            StartGame();
+        }
+    }
+
+    private void StartGame()
+    {
+        playerController.Activate();
+        cameraManager.StartGame();
+        waveManager.StartWave();
     }
 
     public void SetupPlayer()
