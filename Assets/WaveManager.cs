@@ -30,7 +30,7 @@ public class WaveManager : MonoBehaviour
 
     public TMP_Text textObject;
 
-    int currentWave = 0;
+    int currentWave;
     bool isSpawning;
 
 
@@ -39,12 +39,19 @@ public class WaveManager : MonoBehaviour
     public void Initialize()
     {
         Activate(false);
-        isSpawning = false;
+        Reset();
     }
 
     public void Activate(bool val)
     {
         isActive = val;
+    }
+
+    public void Reset()
+    {
+        currentTime = 0;
+        currentWave = 0;
+        isSpawning = false;
     }
 
     private void Update()
@@ -90,7 +97,7 @@ public class WaveManager : MonoBehaviour
         //Spell change text:
     }
 
-    void ChangeSpell()
+    public void ChangeSpell()
     {
         int n = SpellStyle.GetNames(typeof(SpellStyle)).Length - 1;
         System.Random r = new System.Random();

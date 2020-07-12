@@ -10,10 +10,15 @@ public class UIManager : MonoBehaviour
     public GameObject GameUI;
     public GameObject TutorialUI;
     public GameObject GameOverUI;
+    public GameObject HealthBarUI;
+    public GameObject SpellsUI;
+    public GameObject RoundNumberUI;
 
     public Button startButton;
-    public Button quitButton;
+    public Button quitButtonMainMenu;
     public Button tutorialFinishButton;
+    public Button rematchButton;
+    public Button quitButtonGame;
 
     public Action StartGameAction;
     public Action TutorialFinishedAction;
@@ -22,12 +27,18 @@ public class UIManager : MonoBehaviour
     {
         ActivateMainMenu(true);
         startButton.onClick.AddListener(StartGame);
-        quitButton.onClick.AddListener(QuitGame);
+        quitButtonMainMenu.onClick.AddListener(QuitGame);
+        rematchButton.onClick.AddListener(StartGame);
+        quitButtonGame.onClick.AddListener(QuitGame);
     }
 
     public void ShowTutorial()
     {
         TutorialUI.SetActive(true);
+        GameOverUI.SetActive(false);
+        HealthBarUI.SetActive(false);
+        SpellsUI.SetActive(false);
+        RoundNumberUI.SetActive(false);
         tutorialFinishButton.onClick.AddListener(FinishTutorial);
     }
 
@@ -36,6 +47,9 @@ public class UIManager : MonoBehaviour
         tutorialFinishButton.onClick.RemoveAllListeners();
         TutorialFinishedAction();
         TutorialUI.SetActive(false);
+        HealthBarUI.SetActive(true);
+        SpellsUI.SetActive(true);
+        RoundNumberUI.SetActive(true);
     }
 
     public void GameOver()
@@ -47,6 +61,7 @@ public class UIManager : MonoBehaviour
 
     public void StartGame()
     {
+        GameOverUI.SetActive(false);
         ActivateMainMenu(false);
         StartGameAction(); 
     }

@@ -23,8 +23,6 @@ public class PlayerController : MonoBehaviour
     }
 
     #endregion
-
-    public GameObject GameOverPanel;
     
 
     public PlayerShooting playerShooting;
@@ -54,8 +52,6 @@ public class PlayerController : MonoBehaviour
                 healthUIParent.transform.GetChild(p).gameObject.SetActive(true);
             }
         }
-
-        GameOverPanel.SetActive(false);
 
         isDead = false;
     }

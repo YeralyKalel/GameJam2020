@@ -9,13 +9,12 @@ public class GameManager : MonoBehaviour
     public UIManager uiManager;
     public CameraFollow cameraManager;
 
-    public bool isPause;
-
     private void Awake()
     {
         Initialize();
     }
 
+    private bool isPause;
     private bool showTutorial;
     private List<EnemyController> enemyControllers;
 
@@ -51,6 +50,13 @@ public class GameManager : MonoBehaviour
 
     private void StartGame()
     {
+        foreach (EnemyController e in enemyControllers)
+        {
+            Destroy(e.gameObject);
+        }
+        enemyControllers = new List<EnemyController>();
+        waveManager.Reset();
+
         playerController.Activate(true);
         cameraManager.Activate(true);
         waveManager.Activate(true);
