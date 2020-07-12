@@ -39,6 +39,11 @@ public class PlayerShooting : MonoBehaviour
                 currentBulletNumber = maxBulletNumber;
                 restoreBulletTime = 0.5f;
                 break;
+            case SpellStyle.Meteor:
+                maxBulletNumber = 3;
+                currentBulletNumber = maxBulletNumber;
+                restoreBulletTime = 1.25f;
+                break;
             default:
                 Debug.LogWarning("Spell doesn't selected");
                 return;
@@ -96,6 +101,14 @@ public class PlayerShooting : MonoBehaviour
                     {
                         GameObject waterBomb = Instantiate(spellObjects["WaterBomb"], transform.position, transform.rotation);
                         waterBomb.GetComponent<WaterBomb>().SetupWaterBomb(target);
+                        currentBulletNumber--;
+                    }
+                    break;
+                case SpellStyle.Meteor:
+                    if (currentBulletNumber > 0)
+                    {
+                        GameObject meteor = Instantiate(spellObjects["Meteor"], target + new Vector3(0, 10, 0), Quaternion.Euler(0, 0, 0));
+                        meteor.GetComponent<Meteor>().startTimer();
                         currentBulletNumber--;
                     }
                     break;

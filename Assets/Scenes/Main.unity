@@ -7464,6 +7464,9 @@ MonoBehaviour:
   - name: WaterBomb
     prefab: {fileID: 2209580069304972601, guid: 2379e6b3eb96de84fab4a1bca4a0acd0,
       type: 3}
+  - name: Meteor
+    prefab: {fileID: 7565233577023722367, guid: f0243d7c8e89aa84d83f65b31c05cdc9,
+      type: 3}
   spellStyle: 0
 --- !u!114 &1073833093
 MonoBehaviour:
@@ -12614,12 +12617,12 @@ PrefabInstance:
     - target: {fileID: 6731288603896095782, guid: 37e09d36be1e9854a82e27e988cf9daf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.22
+      value: 21.4
       objectReference: {fileID: 0}
     - target: {fileID: 6731288603896095782, guid: 37e09d36be1e9854a82e27e988cf9daf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.1
+      value: 5.2
       objectReference: {fileID: 0}
     - target: {fileID: 6731288603896095782, guid: 37e09d36be1e9854a82e27e988cf9daf,
         type: 3}
@@ -12639,12 +12642,12 @@ PrefabInstance:
     - target: {fileID: 6731288603896095782, guid: 37e09d36be1e9854a82e27e988cf9daf,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 6731288603896095782, guid: 37e09d36be1e9854a82e27e988cf9daf,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 6731288603896095782, guid: 37e09d36be1e9854a82e27e988cf9daf,
         type: 3}
@@ -12664,7 +12667,12 @@ PrefabInstance:
     - target: {fileID: 6731288603896095782, guid: 37e09d36be1e9854a82e27e988cf9daf,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731288603896095782, guid: 37e09d36be1e9854a82e27e988cf9daf,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37e09d36be1e9854a82e27e988cf9daf, type: 3}
