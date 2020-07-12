@@ -29,7 +29,6 @@ public class EnemyManager : MonoBehaviour
     public int playerX;
     public int playerY;
 
-
     //Particles
     public ParticleSystem speedBuff;
     public ParticleSystem healthBuff;

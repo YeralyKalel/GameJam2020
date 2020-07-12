@@ -1185,6 +1185,7 @@ MonoBehaviour:
   MainMenuUI: {fileID: 1877498431}
   GameUI: {fileID: 12161261}
   TutorialUI: {fileID: 448395100}
+  GameOverUI: {fileID: 651223586}
   startButton: {fileID: 1322829745}
   quitButton: {fileID: 236631874}
   tutorialFinishButton: {fileID: 1622184735}

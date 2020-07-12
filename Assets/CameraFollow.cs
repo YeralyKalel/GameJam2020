@@ -14,12 +14,12 @@ public class CameraFollow : MonoBehaviour
 
     public void Initialize()
     {
-        isActive = false;
+        Activate(false);
     }
 
-    public void StartGame()
+    public void Activate(bool val)
     {
-        isActive = true;
+        isActive = val;
     }
 
     private void FixedUpdate()

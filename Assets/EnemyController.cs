@@ -12,10 +12,17 @@ public class EnemyController : MonoBehaviour
 
 
     public EnemyCombat enemyCombat;
-    // Start is called before the first frame update
-    public void SetPlayer()
-    {
+    public EnemyMovement enemyMovement;
 
+    private void Start()
+    {
+        Activate(true);
+    }
+
+    public void Activate(bool val)
+    {
+        enemyCombat.Activate(val);
+        enemyMovement.Activate(val);
     }
 
 
@@ -32,7 +39,6 @@ public class EnemyController : MonoBehaviour
 
     private void Die()
     {
-        enemyCombat.Die();
-
+        Destroy(gameObject);
     }
 }
