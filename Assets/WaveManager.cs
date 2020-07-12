@@ -69,7 +69,7 @@ public class WaveManager : MonoBehaviour
             }
             return;
         }
-        if(currentTime <= 0)
+        if(currentTime <= 0 || EnemyManager.instance.transform.childCount == 0)
         {
             //spawn new wave of enemies
 
