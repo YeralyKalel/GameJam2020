@@ -24,7 +24,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (!isActive) return;
+        if (!isActive)
+        {
+            rb.velocity = Vector2.zero;
+            return;
+        }
+
+
         Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0, 0, 10);
         target = new Vector3(target.x - transform.position.x, target.y - transform.position.y, 0);
         float angle = Mathf.Atan2(target.y, target.x) * Mathf.Rad2Deg;
