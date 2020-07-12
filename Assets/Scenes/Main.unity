@@ -352,6 +352,12 @@ MonoBehaviour:
   startDelay: 0.5
   playerX: 0
   playerY: 0
+  speedBuff: {fileID: 3929907955528317598, guid: 04596f1fb86e7134485a1f2579a59c72,
+    type: 3}
+  healthBuff: {fileID: 1523523555800496847, guid: b2c266dec3a73b04490260d2e056b9ac,
+    type: 3}
+  attackSpeedBuff: {fileID: 3414262955017492220, guid: 19b36a876997a4a4c8ecf94cee6d839e,
+    type: 3}
 --- !u!4 &58926807
 Transform:
   m_ObjectHideFlags: 0

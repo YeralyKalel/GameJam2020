@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 1
+  health: 1
   enemyCombat: {fileID: 2901312793626527843}
 --- !u!114 &2901312793626527843
 MonoBehaviour:
@@ -176,6 +177,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDamageInterval: 2
   distanceThreshold: 0.1
-  attackSpeed: 1
+  attackSpeed: 0.5
   enemyProjectile: {fileID: 2861579009977011186, guid: c39a6386b3b3f7a4f907366bd5c373b4,
     type: 3}

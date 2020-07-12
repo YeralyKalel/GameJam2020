@@ -24,8 +24,6 @@ public class EnemyProjectile : MonoBehaviour
 
     public void SetTargetAndRotation(Vector3 target)
     {
-        print("This is getting run");
-
         travelDistance = 0f;
         targetSet = true;
 
