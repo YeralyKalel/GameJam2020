@@ -11,7 +11,6 @@ public class UIManager : MonoBehaviour
     public GameObject TutorialUI;
     public GameObject GameOverUI;
     public GameObject HealthBarUI;
-    public GameObject SpellsUI;
     public GameObject RoundNumberUI;
 
     public Button startButton;
@@ -36,7 +35,7 @@ public class UIManager : MonoBehaviour
     {
         TutorialUI.SetActive(true);
         GameOverUI.SetActive(false);
-        SpellsUI.SetActive(false);
+        HealthBarUI.SetActive(false);
         RoundNumberUI.SetActive(false);
         tutorialFinishButton.onClick.AddListener(FinishTutorial);
     }
@@ -47,7 +46,6 @@ public class UIManager : MonoBehaviour
         TutorialFinishedAction();
         TutorialUI.SetActive(false);
         HealthBarUI.SetActive(true);
-        SpellsUI.SetActive(true);
         RoundNumberUI.SetActive(true);
     }
 
