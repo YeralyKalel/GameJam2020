@@ -116,13 +116,15 @@ public class WaterBomb : MonoBehaviour
                 if (isDestroying)
                 {
                     //Put animation as input to Die function (explode)
-                    collision.GetComponent<EnemyController>().TakeDamage(10);
+                    collision.GetComponent<EnemyController>().TakeDamage(20);
+                    Camera.main.GetComponent<CameraShake>().Shake(0.025f, 0.25f);
                 }
                 else
                 {
                     if (nKills < 1) return;
                     nKills--;
-                    collision.GetComponent<EnemyController>().TakeDamage(10);
+                    collision.GetComponent<EnemyController>().TakeDamage(20);
+                    Camera.main.GetComponent<CameraShake>().Shake(0.025f, 0.25f);
                     //Put animation as input to Die function (hit)
                 }
             }

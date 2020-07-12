@@ -16,18 +16,21 @@ public class LaserBeam : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         string collisonTag = collision.tag;
         if (collisonTag == "Environment")
         {
             //Shorten the length of beam until environment using ray
-        } else if (collisonTag == "Enemy")
+        }
+        else if (collisonTag == "Enemy")
         {
             //Put animation as input to Die function (cut into two)
             collision.GetComponent<EnemyController>().TakeDamage(1);
+            Camera.main.GetComponent<CameraShake>().Shake(0.015f, 0.05f);
         }
     }
+
     private void DestroyObject()
     {
 

@@ -94,7 +94,6 @@ public class EnemyMovement : MonoBehaviour
                         if(Vector2.Distance(transform.position, new Vector2(em.playerX, em.playerY)) < attackRange)
                         {
                             //Shoot at the player
-                            print("Should be shooting at the player");
                             transform.GetComponent<EnemyCombat>().RangedAttack();
                         }
                         else
